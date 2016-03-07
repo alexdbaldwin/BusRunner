@@ -51,6 +51,10 @@ public class CharacterMovement : MonoBehaviour
 
         // Set the vertical animation
         m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+        if (transform.position.y < -5) {
+            Die();
+        }
     }
 
 
@@ -142,23 +146,28 @@ public class CharacterMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "MovingPlatform")
-        {
-            transform.SetParent(other.gameObject.transform);
-            movingPlatform = other.gameObject;
-            
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject.tag == "MovingPlatform")
+    //    {
+    //        transform.SetParent(other.gameObject.transform);
+    //        movingPlatform = other.gameObject;
 
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "MovingPlatform" && movingPlatform == other.gameObject)
-        {
-            transform.SetParent(null);
-            movingPlatform = null;
-        }
+    //    }
+    //}
+
+    //void OnCollisionExit2D(Collision2D other)
+    //{
+    //    if (other.gameObject.tag == "MovingPlatform" && movingPlatform == other.gameObject)
+    //    {
+    //        transform.SetParent(null);
+    //        movingPlatform = null;
+    //    }
+    //}
+
+    private void Die(){
+        transform.position = GameObject.Find("PlayerSpawnPoint").transform.position;
+        m_Rigidbody2D.velocity = Vector2.zero;
     }
 }
 

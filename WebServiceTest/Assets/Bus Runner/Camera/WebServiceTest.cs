@@ -8,8 +8,9 @@ public class WebServiceTest : MonoBehaviour {
 
 	// Use this for initialization
     void Start () {
-        StartCoroutine(GetStreetView());
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        StartCoroutine(GetStreetView());
         ResizeToFillScreen();
 	}
 	
@@ -23,11 +24,11 @@ public class WebServiceTest : MonoBehaviour {
         yield return www.Send();
 
         if (www.isError){
-            Debug.Log(www.error);
+            //Debug.Log(www.error);
         }  
         else
         {
-            Debug.Log("Success!");
+            //Debug.Log("Success!");
             Texture2D myTexture = (Texture2D) DownloadHandlerTexture.GetContent(www);
             spriteRenderer.sprite = Sprite.Create(myTexture, new Rect(0, 0, myTexture.width, myTexture.height), new Vector2(0.5f,0.5f));
         }

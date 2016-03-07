@@ -20,6 +20,8 @@ public class CharacterController : MonoBehaviour
         {
             // Read the jump input in Update so button presses aren't missed.
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            m_Character.Move(1, false, m_Jump);
+            m_Jump = false;
         }
     }
 
@@ -30,7 +32,6 @@ public class CharacterController : MonoBehaviour
         //bool crouch = Input.GetKey(KeyCode.LeftControl);
         //float h = CrossPlatformInputManager.GetAxis("Horizontal");
         // Pass all parameters to the character control script.
-        m_Character.Move(1, false, m_Jump);
-        m_Jump = false;
+        
     }
 }

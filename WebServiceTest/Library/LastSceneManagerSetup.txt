@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Bus Runner/StreetViewTest.unity
+- path: Assets/Bus Runner/NoStreetView.unity
   isLoaded: 1
   isActive: 1
