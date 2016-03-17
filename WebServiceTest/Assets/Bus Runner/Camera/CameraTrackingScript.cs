@@ -14,6 +14,7 @@ public class CameraTrackingScript : MonoBehaviour {
 	void Update () {
         Vector3 pos = gameObject.transform.position;
         pos.x = target.transform.position.x + 1;
+        pos.y = target.transform.position.y;
         gameObject.transform.position = pos;
 	}
 }
